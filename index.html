@@ -34,43 +34,60 @@
             margin-top: 0;
             font-size: 2.2em;
         }
+        .bio-title {
+            font-weight: bold;
+            font-size: 1.15em;
+            margin-bottom: 6px;
+            margin-top: 18px;
+        }
         .bio {
             color: #516073;
             font-style: italic;
             margin-bottom: 24px;
+            margin-top: 0;
         }
-        ul {
+        ul.links {
             list-style: none;
             padding: 0;
             margin: 24px 0;
         }
-        li {
+        ul.links li {
             margin: 8px 0;
             font-size: 1.06em;
         }
-        a {
+        .social-icons {
+            margin-top: 18px;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
             color: #2267be;
             text-decoration: none;
+            font-size: 1.6em;
+            vertical-align: middle;
+            transition: color 0.2s;
         }
-        a:hover {
-            text-decoration: underline;
+        .social-icons a:hover {
+            color: #1a4e8a;
         }
         @media (max-width: 600px) {
             .container { padding: 18px 4vw; }
             h1 { font-size: 1.4em; }
         }
     </style>
+    <!-- Simple icons CDN for Kaggle and LinkedIn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons@v11.8.0/dist/simple-icons.min.css">
 </head>
 <body>
     <div class="container">
         <img src="https://github.com/imantsdlv.png" alt="imantsdlv's avatar" class="avatar">
         <h1>Hello, I'm Imants!</h1>
-        <p class="bio">Web developer & technology enthusiast. Welcome to my personal site!</p>
-        <ul>
+        <div class="bio-title">Bio</div>
+        <p class="bio">
+            Just a data science enthusiast with the curiosity of a raccoon and the coding skills of… well, I'm working on that part.
+            Excited to dive into the world of ML and hopefully not cause any major AI uprisings in the process. Wish me luck! 😜
+        </p>
+        <ul class="links">
             <li>Email: yourname@example.com</li>
-            <li>GitHub: <a href="https://github.com/imantsdlv" target="_blank">imantsdlv</a></li>
-        </ul>
-        <p>This is a simple webpage created with HTML. Stay tuned for updates!</p>
-    </div>
-</body>
-</html>
+            <li>GitHub: <a href="https://github.com/imantsdlv" target="_blank
+
