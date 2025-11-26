@@ -182,6 +182,26 @@
             mouse.x = event.x;
             mouse.y = event.y;
         });
+        // Listen for when a finger moves across the screen
+        window.addEventListener('touchmove', function(event){
+            // Prevent default scrolling behavior so the page doesn't jump
+            event.preventDefault(); 
+            mouse.x = event.touches[0].clientX;
+            mouse.y = event.touches[0].clientY;
+        }, { passive: false });
+
+        // Listen for the initial touch
+        window.addEventListener('touchstart', function(event){
+            event.preventDefault();
+            mouse.x = event.touches[0].clientX;
+            mouse.y = event.touches[0].clientY;
+        }, { passive: false });
+
+        // Optional: When finger leaves screen, reset so particles return home
+        window.addEventListener('touchend', function(){
+            mouse.x = null;
+            mouse.y = null;
+        });
 
         class Particle {
             constructor(x, y, isShape){
@@ -290,4 +310,5 @@
     </script>
 </body>
 </html>
+
 
