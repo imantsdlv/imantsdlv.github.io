@@ -127,6 +127,9 @@
             text-decoration: none;
             transition: transform 0.3s ease, color 0.3s ease;
             opacity: 0.8;
+            /* Ensure links have a high z-index interaction area if needed, 
+               but pointer-events: auto usually handles it */
+            cursor: pointer;
         }
 
         .social-links a:hover {
@@ -182,6 +185,7 @@
             mouse.x = event.x;
             mouse.y = event.y;
         });
+
         // Listen for when a finger moves across the screen
         window.addEventListener('touchmove', function(event){
             // Prevent default scrolling behavior so the page doesn't jump
@@ -192,6 +196,16 @@
 
         // Listen for the initial touch
         window.addEventListener('touchstart', function(event){
+            // MODIFIED: Check if the target is a link before preventing default
+            if (event.target.closest('a')) {
+                // It is a link! Update mouse position but let the click happen
+                mouse.x = event.touches[0].clientX;
+                mouse.y = event.touches[0].clientY;
+                // Do NOT call preventDefault() here
+                return;
+            }
+
+            // Not a link? Prevent default to stop UI weirdness on canvas
             event.preventDefault();
             mouse.x = event.touches[0].clientX;
             mouse.y = event.touches[0].clientY;
@@ -310,5 +324,3 @@
     </script>
 </body>
 </html>
-
-
